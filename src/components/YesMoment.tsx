@@ -6,7 +6,7 @@ import { motion } from "motion/react";
 import { useReward } from "partycles";
 import { Card } from "@/components/ui/card";
 import { EASE } from "@/lib/phases";
-import { YES_CAPTION } from "@/lib/copy";
+import { YES_CAPTION, YES_CAPTION_LINE2 } from "@/lib/copy";
 
 /**
  * YesMoment — The emotional climax.
@@ -53,28 +53,49 @@ const HeartHaloSVG = () => (
   </svg>
 );
 
-/** Staggered caption text */
+/** Staggered caption text (two lines) */
 const StaggeredCaption = () => {
-  const words = YES_CAPTION.split(" ");
+  const line1Words = YES_CAPTION.split(" ");
+  const line2Words = YES_CAPTION_LINE2.split(" ");
+  const line2StartDelay = CAPTION_DELAY + line1Words.length * CAPTION_WORD_STAGGER + 0.3;
 
   return (
-    <p className="mt-4 text-center font-sans text-[15px] tracking-[0.02em] text-[#f3eee6]/78">
-      {words.map((word, i) => (
-        <motion.span
-          key={i}
-          className="mr-[0.3em] inline-block last:mr-0"
-          initial={{ opacity: 0, y: 6, filter: "blur(4px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          transition={{
-            duration: 0.35,
-            ease: EASE,
-            delay: CAPTION_DELAY + i * CAPTION_WORD_STAGGER,
-          }}
-        >
-          {word}
-        </motion.span>
-      ))}
-    </p>
+    <div className="mt-4 flex flex-col items-center gap-1.5 text-center font-sans text-[15px] tracking-[0.02em] text-[#f3eee6]/78">
+      <p>
+        {line1Words.map((word, i) => (
+          <motion.span
+            key={i}
+            className="mr-[0.3em] inline-block last:mr-0"
+            initial={{ opacity: 0, y: 6, filter: "blur(4px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{
+              duration: 0.35,
+              ease: EASE,
+              delay: CAPTION_DELAY + i * CAPTION_WORD_STAGGER,
+            }}
+          >
+            {word}
+          </motion.span>
+        ))}
+      </p>
+      <p>
+        {line2Words.map((word, i) => (
+          <motion.span
+            key={i}
+            className="mr-[0.3em] inline-block last:mr-0"
+            initial={{ opacity: 0, y: 6, filter: "blur(4px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            transition={{
+              duration: 0.35,
+              ease: EASE,
+              delay: line2StartDelay + i * CAPTION_WORD_STAGGER,
+            }}
+          >
+            {word}
+          </motion.span>
+        ))}
+      </p>
+    </div>
   );
 };
 

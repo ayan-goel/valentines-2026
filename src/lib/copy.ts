@@ -7,7 +7,8 @@ export const HEADLINE = "Will you be my Valentine?";
 export const YES_LABEL = "Yes";
 export const NO_LABEL = "No";
 
-export const YES_CAPTION = "Lets goooooo. I am so lucky 🤍 I love you!!! Get excited for dinner on Saturday :)";
+export const YES_CAPTION = "Lets goooooo. I am so lucky 🤍 I love you!!!";
+export const YES_CAPTION_LINE2 = "Get excited for dinner on Saturday :)";
 
 export const TEASE_MESSAGES = [
   "wrong answer",
