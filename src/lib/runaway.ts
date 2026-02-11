@@ -7,7 +7,7 @@
  * so it feels playful, not glitchy.
  */
 
-export const DANGER_RADIUS = 90;
+export const DANGER_RADIUS = 72;
 export const SAFE_PADDING = 24;
 export const MAX_MOVES_PER_SECOND = 2;
 export const MIN_DIST_FROM_YES = 100;
